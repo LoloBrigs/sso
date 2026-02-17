@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авторизация</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Title</title>
+</head>
+<body>
+<header class="header">
+  <div>
+    <img src="assets/images/Logo.webp" alt="Лого - Результат зависит от тебя!" class="logo" />
+    <img src="assets/images/Logo-desktop.webp" alt="Лого - Результат зависит от тебя!" class="logo-desktop" />
+  </div>
+  <button class="button__exit">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="button__exit-icon">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M-1.58158 -1.58158C-1.02369 -2.13947 -0.119168 -2.13947 0.438724 -1.58158L8 5.9797L15.5613 -1.58158C16.1192 -2.13947 17.0237 -2.13947 17.5816 -1.58158C18.1395 -1.02369 18.1395 -0.119168 17.5816 0.438724L10.0203 8L17.5816 15.5613C18.1395 16.1192 18.1395 17.0237 17.5816 17.5816C17.0237 18.1395 16.1192 18.1395 15.5613 17.5816L8 10.0203L0.438724 17.5816C-0.119168 18.1395 -1.02369 18.1395 -1.58158 17.5816C-2.13947 17.0237 -2.13947 16.1192 -1.58158 15.5613L5.9797 8L-1.58158 0.438724C-2.13947 -0.119168 -2.13947 -1.02369 -1.58158 -1.58158Z" fill="#445371" fill-opacity="0.5"/>
+    </svg>
+  </button>
+</header>
+  <main class="content">
+    <div class="content__wrapper">
+    <h3 class="title">
+      Введите код из СМС
+    </h3>
+    <p class="description">
+      На номер <span class="confirm__number">+7 949 125 43 43</span> было
+      </br >
+      отправлено СМС с кодом для входа
+    </p>
+
+    <div class="confirm__code-input error">
+      <input type="text" autocomplete="one-time-code" id="otp-input" inputmode="numeric" maxlength="4" pattern="[0-9]*">
+      <div class="confirm__code-digit" data-index="0"></div>
+      <div class="confirm__code-digit" data-index="1"></div>
+      <div class="confirm__code-digit" data-index="2"></div>
+      <div class="confirm__code-digit" data-index="3"></div>
+    </div>
+    <p class="description">
+      Отправим код повторно через <span class="confirm__timer">25</span> сек
+    </p>
+<!--      <button class="confirm__resend">Отправить ещё раз</button>-->
+  </div>
+  </main>
+
+  <script src="sms-confirm.js"></script>
+</body>
+</html>
