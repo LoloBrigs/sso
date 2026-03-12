@@ -11,7 +11,6 @@ if ('OTPCredential' in window) {
   })
     .then(otp => {
       if (otp && otp.code) {
-        console.log('Получен код через Web OTP:', otp.code);
         otpInput.value = otp.code.substring(0, 4);
         updateDigits();
         checkCodeComplete();
@@ -87,6 +86,33 @@ function checkCodeComplete() {
 
 function submitCode(code) {
   console.log('Отправка кода:', code);
+
+  otpInput.disabled = true;
+  codeContainer.classList.add('disabled');
+
+  simulateCodeVerification(code);
+}
+
+function simulateCodeVerification(code) {
+  setTimeout(() => {
+    const isValid = code === '1234';
+    
+    if (isValid) {
+      console.log('Код верный!');
+      codeContainer.classList.remove('error');
+    } else {
+      console.log('Ошибка!');
+      codeContainer.classList.add('error');
+      codeContainer.classList.remove('disabled');
+
+      setTimeout(() => {
+        otpInput.value = '';
+        updateDigits();
+        otpInput.disabled = false;
+        otpInput.focus();
+      }, 1000);
+    }
+  }, 500);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
